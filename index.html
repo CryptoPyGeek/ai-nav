@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI导航 - 发现最好的AI工具和资源">
+    <meta name="theme-color" content="#6366f1">
+    <title>AI导航 - 发现最好的AI工具</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">AI导航</span>
+            </a>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="搜索 AI 工具..." autocomplete="off">
+                <button class="search-btn" aria-label="搜索">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+            <nav class="nav-desktop">
+                <a href="#chat" class="nav-link">聊天AI</a>
+                <a href="#image" class="nav-link">图像AI</a>
+                <a href="#video" class="nav-link">视频AI</a>
+                <a href="#audio" class="nav-link">音频AI</a>
+                <a href="#tools" class="nav-link">工具</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#chat" class="mobile-nav-link">💬 聊天AI</a>
+        <a href="#image" class="mobile-nav-link">🎨 图像AI</a>
+        <a href="#video" class="mobile-nav-link">🎬 视频AI</a>
+        <a href="#audio" class="mobile-nav-link">🎵 音频AI</a>
+        <a href="#tools" class="mobile-nav-link">🔧 工具</a>
+    </nav>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">发现最好的 <span class="gradient-text">AI 工具</span></h1>
+                <p class="hero-subtitle">聚合全球优质 AI 资源，助力你的 AI 之旅</p>
+                <div class="category-tabs" id="categoryTabs">
+                    <button class="category-tab active" data-category="all">全部</button>
+                    <button class="category-tab" data-category="chat">💬 聊天AI</button>
+                    <button class="category-tab" data-category="image">🎨 图像AI</button>
+                    <button class="category-tab" data-category="video">🎬 视频AI</button>
+                    <button class="category-tab" data-category="audio">🎵 音频AI</button>
+                    <button class="category-tab" data-category="tools">🔧 工具</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="container filters-inner">
+                <div class="filter-group">
+                    <label class="filter-label">标签：</label>
+                    <div class="filter-tags" id="filterTags">
+                        <button class="filter-tag active" data-tag="all">全部</button>
+                        <button class="filter-tag" data-tag="free">免费</button>
+                        <button class="filter-tag" data-tag="api">API</button>
+                        <button class="filter-tag" data-tag="opensource">开源</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">排序：</label>
+                    <select class="filter-sort" id="filterSort">
+                        <option value="default">默认排序</option>
+                        <option value="views">浏览量</option>
+                        <option value="latest">最新收录</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="currentSectionTitle">精选推荐</h2>
+                    <span class="results-count" id="resultsCount">共 0 个工具</span>
+                </div>
+                <div class="tools-grid" id="toolsGrid"></div>
+                <div class="loading" id="loading">
+                    <div class="loading-spinner"></div>
+                </div>
+                <div class="no-results" id="noResults" style="display: none;">
+                    <p>没有找到匹配的工具</p>
+                    <button class="btn-reset" id="resetFilters">重置筛选</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">分类浏览</h2>
+                <div class="categories-grid" id="categoriesGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">AI导航</span>
+                <p class="footer-desc">聚合优质 AI 资源，探索人工智能的无限可能</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>分类</h4>
+                    <a href="#chat">聊天AI</a>
+                    <a href="#image">图像AI</a>
+                    <a href="#video">视频AI</a>
+                    <a href="#audio">音频AI</a>
+                </div>
+                <div class="footer-col">
+                    <h4>资源</h4>
+                    <a href="#tools">开发工具</a>
+                    <a href="#">使用教程</a>
+                    <a href="#">行业报告</a>
+                </div>
+                <div class="footer-col">
+                    <h4>关于</h4>
+                    <a href="#">关于我们</a>
+                    <a href="#">提交网站</a>
+                    <a href="#">联系方式</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AI导航. MIT License.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
