@@ -29,11 +29,11 @@
                 <div class="search-suggestions" id="searchSuggestions"></div>
             </div>
             <nav class="nav-desktop">
-                <a href="#chat" class="nav-link">聊天AI</a>
-                <a href="#image" class="nav-link">图像AI</a>
-                <a href="#video" class="nav-link">视频AI</a>
-                <a href="#audio" class="nav-link">音频AI</a>
-                <a href="#tools" class="nav-link">工具</a>
+                <a href="#" class="nav-link" data-category="chat">聊天AI</a>
+                <a href="#" class="nav-link" data-category="image">图像AI</a>
+                <a href="#" class="nav-link" data-category="video">视频AI</a>
+                <a href="#" class="nav-link" data-category="audio">音频AI</a>
+                <a href="#" class="nav-link" data-category="tools">工具</a>
             </nav>
             <button class="menu-toggle" id="menuToggle" aria-label="菜单">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -46,11 +46,11 @@
     </header>
 
     <nav class="mobile-nav" id="mobileNav">
-        <a href="#chat" class="mobile-nav-link">💬 聊天AI</a>
-        <a href="#image" class="mobile-nav-link">🎨 图像AI</a>
-        <a href="#video" class="mobile-nav-link">🎬 视频AI</a>
-        <a href="#audio" class="mobile-nav-link">🎵 音频AI</a>
-        <a href="#tools" class="mobile-nav-link">🔧 工具</a>
+        <a href="#" class="mobile-nav-link" data-category="chat">💬 聊天AI</a>
+        <a href="#" class="mobile-nav-link" data-category="image">🎨 图像AI</a>
+        <a href="#" class="mobile-nav-link" data-category="video">🎬 视频AI</a>
+        <a href="#" class="mobile-nav-link" data-category="audio">🎵 音频AI</a>
+        <a href="#" class="mobile-nav-link" data-category="tools">🔧 工具</a>
     </nav>
 
     <main class="main">
@@ -126,22 +126,22 @@
             <div class="footer-links">
                 <div class="footer-col">
                     <h4>分类</h4>
-                    <a href="#chat">聊天AI</a>
-                    <a href="#image">图像AI</a>
-                    <a href="#video">视频AI</a>
-                    <a href="#audio">音频AI</a>
+                    <a href="#" data-category="chat">聊天AI</a>
+                    <a href="#" data-category="image">图像AI</a>
+                    <a href="#" data-category="video">视频AI</a>
+                    <a href="#" data-category="audio">音频AI</a>
                 </div>
                 <div class="footer-col">
                     <h4>资源</h4>
-                    <a href="#tools">开发工具</a>
-                    <a href="#">使用教程</a>
-                    <a href="#">行业报告</a>
+                    <a href="#" data-category="tools">开发工具</a>
+                    <a href="#" onclick="event.preventDefault(); showToast('功能开发中')">使用教程</a>
+                    <a href="#" onclick="event.preventDefault(); showToast('功能开发中')">行业报告</a>
                 </div>
                 <div class="footer-col">
                     <h4>关于</h4>
-                    <a href="#">关于我们</a>
-                    <a href="#">提交网站</a>
-                    <a href="#">联系方式</a>
+                    <a href="#" onclick="event.preventDefault(); showToast('功能开发中')">关于我们</a>
+                    <a href="#" onclick="event.preventDefault(); showToast('功能开发中')">提交网站</a>
+                    <a href="#" onclick="event.preventDefault(); showToast('功能开发中')">联系方式</a>
                 </div>
             </div>
             <div class="footer-bottom">

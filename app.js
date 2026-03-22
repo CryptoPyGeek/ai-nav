@@ -581,8 +581,33 @@ resetFilters.addEventListener('click', () => {
 });
 
 document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = link.dataset.category;
+        if (category) {
+            handleCategoryClick(category);
+        }
         mobileNav.classList.remove('active');
+    });
+});
+
+document.querySelectorAll('.nav-desktop .nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = link.dataset.category;
+        if (category) {
+            handleCategoryClick(category);
+        }
+    });
+});
+
+document.querySelectorAll('.footer-links a[data-category]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = link.dataset.category;
+        if (category) {
+            handleCategoryClick(category);
+        }
     });
 });
 
